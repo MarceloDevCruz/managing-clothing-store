@@ -1,0 +1,20 @@
+{
+  "name": "app",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "@hotwired/turbo-rails": "^7.3.0",
+    "axios": "^1.4.0",
+    "date-fns": "^2.30.0",
+    "esbuild": "^0.18.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.0",
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^6.12.1",
+    "styled-component": "^2.8.0",
+    "styled-components": "^6.0.0-rc.3"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets --loader:.js=jsx"
+  }
+}
