@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/mfairburn/activeadmin-select2
+  revision: f35b0367cca61266737c94ca9a94cd142c95b763
+  branch: master
+  specs:
+    activeadmin-select2 (0.1.8)
+      activeadmin
+      jquery-rails
+      select2-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -249,6 +259,7 @@ GEM
     rubyzip (2.3.2)
     sassc (2.1.0-x86_64-linux)
       ffi (~> 1.9)
+    select2-rails (4.0.13)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -296,6 +307,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   activeadmin
+  activeadmin-select2!
   bcrypt (~> 3.1.7)
   bootsnap
   capybara

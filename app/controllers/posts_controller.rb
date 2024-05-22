@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    # @post = Post.create_post(params[:user_id], params[:title], params[:content], params[:image])
     @post = current_user.posts.build(post_params)
 
     if @post.save
@@ -45,7 +44,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    p "======================== #{params}"
     params.permit(
       :title,
       :content,

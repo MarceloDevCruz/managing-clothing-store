@@ -6,26 +6,28 @@ grid-column: 2/-1;
 grid-row: 1/-1;
 
 display: flex;
-align-items: center;
+align-items: flex-start;
+padding-top: 10%;
 margin: 2rem;
+margin: 0 auto;
+height: 1000px;
 
 img {
   border: 1px solid black;
   border-radius: 10px;
-  height: 60rem;
-  width: 70rem;
   align-self: center;
   object-fit: cover; 
   object-position: center; 
+  align-self: flex-start;
 }
-
 `
 
 export const PostContainer = styled.div`
   margin: 4rem;
+  justify-content: flex-start;
 
   h1 {
-    font-size: 30px;
+    font-size: 44px;
     font-weight: 600;
     letter-spacing: 0.3px;
     color:  ${(props) => (props.theme === 'dark' ? '#f8f8f8' : 'rgba(0,0,0, 0.8)')};
@@ -34,13 +36,14 @@ export const PostContainer = styled.div`
 
   small, p {
     color:  ${(props) => (props.theme === 'dark' ? '#f8f8f8' : 'rgba(0,0,0, 0.8)')};
+    font-size: 30px;
   }
 `;
 
 export const CommentsContainer = styled.div`
   h2 {
-    font-size: 22px;
-    letter-spacing: 2px;
+    font-size: 32px;
+    letter-spacing: 2.4px;
     margin: 1rem 0;
     color:  ${(props) => (props.theme === 'dark' ? '#f8f8f8' : 'rgba(0,0,0, 0.8)')};
     font-weight: 700;
@@ -115,3 +118,22 @@ export const CommentForm = styled.form`
   }
 `;
 
+export const Button = styled.button`
+    margin-top: 2rem;
+    padding: 12px 24px;
+    background-color: #67c79f;
+    height: 54px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #215841;
+    }
+`;

@@ -1,0 +1,13 @@
+<%= semantic_form_for  [:admin, @item], builder: ActiveAdmin::FormBuilder do |f| %>
+  <%= f.inputs  do %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :image, as: :file %>
+    <%= f.input :value %>
+    <%= f.input :quantity %>
+    <%= f.input :color, as: :string %>
+    <%= f.input :size %>
+    <%= f.input :product_id, as: :select2, collection: Product.all, input_html: { style: "width: 78%;" } %>
+  <% end %>
+  <%= f.actions %>
+<% end %>

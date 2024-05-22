@@ -26,8 +26,8 @@ const Header = () => {
 
       <TextContainer theme={context.theme}>
         <div>
-          <h1>Walljobs Posts</h1>
-          <h4>Veja todos os posts dos usuários:</h4>
+          <h1>Loja Fashion Souls</h1>
+          <h4>Desperte Sua <strong>Essência</strong> e <strong>elegância</strong> em Cada Look</h4>
         </div>
 
         <div>

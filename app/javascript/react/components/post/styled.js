@@ -45,14 +45,15 @@ export const Container = styled.div`
         cursor: pointer;
     }
 
-    img {
-    width: 97%;
-    height: 33vh;
-    border-radius: 10px;
-    align-self: center;
-    object-fit: cover; 
-    object-position: center; 
-    }
+`;
+
+export const Image = styled.img`
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  align-self: center;
+  object-fit: contain; 
+  object-position: center; 
 `;
 
 export const Vectors = styled.div`

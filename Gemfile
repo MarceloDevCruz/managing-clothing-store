@@ -28,6 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'activeadmin'
+gem 'activeadmin-select2',                       git: 'https://github.com/mfairburn/activeadmin-select2', branch: 'master'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

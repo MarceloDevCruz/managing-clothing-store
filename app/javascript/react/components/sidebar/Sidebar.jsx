@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { CreateContext } from '../../context/CreateContext';
-import { ContainerDark, ContainerLight, UlContainer, Btn } from './styled';
+import { ContainerDark, ContainerLight, UlContainer, Image } from './styled';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BiLogOut, BiLogIn } from 'react-icons/bi';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
+import { CiShoppingCart } from "react-icons/ci";
 import { IoCreateOutline } from 'react-icons/io5';
 import { HiOutlineUserGroup, HiOutlineWrench, HiOutlineUserPlus } from 'react-icons/hi2';
 import StyledLink from './styled';
@@ -48,7 +49,7 @@ const Sidebar = () => {
         <>
           {context.theme === 'dark' ? (
             <ContainerDark >
-              <img src="/Walljobs.png" alt="Walljobs logo" onClick={() => navigate('/')} />
+              <Image src="/Walljobs.png" alt="Fashion Souls logo" onClick={() => navigate('/')} />
               <UlContainer>
                 {!context.isLogged ? (
                   <>
@@ -76,19 +77,13 @@ const Sidebar = () => {
                     <li>
                       <StyledLink to="/" isActive={location.pathname === '/'}>
                         <MdOutlineSpaceDashboard />
-                        Posts
+                        Loja
                       </StyledLink>
                     </li>
                     <li>
                       <StyledLink to="/createpost" isActive={location.pathname === '/createpost'}>
-                        <IoCreateOutline />
-                        Criar Post
-                      </StyledLink>
-                    </li>
-                    <li>
-                      <StyledLink to="/config" isActive={location.pathname === '/config'}>
-                        <HiOutlineWrench />
-                        Configurações
+                        <CiShoppingCart />
+                        Meu Carrinho
                       </StyledLink>
                     </li>
                     <li>
@@ -113,7 +108,7 @@ const Sidebar = () => {
             </ContainerDark>
           ) : (
             <ContainerLight >
-              <img src="/Walljobs.png" alt="Walljobs logo" onClick={() => navigate('/')} />
+              <Image src="/Walljobs.png" alt="Fashion Souls logo" onClick={() => navigate('/')} />
               <UlContainer>
                 {!context.isLogged ? (
                   <>
@@ -141,19 +136,13 @@ const Sidebar = () => {
                     <li>
                       <StyledLink to="/" isActive={location.pathname === '/'}>
                         <MdOutlineSpaceDashboard />
-                        Posts
+                        Loja
                       </StyledLink>
                     </li>
                     <li>
                       <StyledLink to="/createpost" isActive={location.pathname === '/createpost'}>
-                        <IoCreateOutline />
-                        Criar Post
-                      </StyledLink>
-                    </li>
-                    <li>
-                      <StyledLink to="/config" isActive={location.pathname === '/config'}>
-                        <HiOutlineWrench />
-                        Configurações
+                        <CiShoppingCart />
+                        Meu Carrinho
                       </StyledLink>
                     </li>
                     <li>

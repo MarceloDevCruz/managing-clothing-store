@@ -12,41 +12,32 @@ const Home = () => {
 
   const [offSet, setOffSet] = useState(0);
   const limit = 6;
-  const total = context.posts.length;
+  const total = context.items.length;
 
-  const fetchPosts = async () => {
+  const fetchItems = async () => {
     try {
-      const response = await axios.get('/posts');
-      context.setPosts(response.data.data);
-      console.log(context.posts);
+      const response = await axios.get('/items');
+      context.setItems(response.data.data);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    fetchPosts();
+    fetchItems();
   }, []);
 
-  const handleDeletePost = async (postId) => {
-    try {
-      await axios.delete(`/posts/${postId}`);
-      fetchPosts();
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <>
       <Header />
       <Container >
-        {context.posts && (
+        {context.items && (
           <PostContainer theme={context.theme}>
-            {context.posts
-              .filter((post, i) => i >= offSet && i < offSet + limit)
-              .map((post) => (
-                <Post post={post} key={post.id} onDeletePost={handleDeletePost} />
+            {context.items
+              .filter((item, i) => i >= offSet && i < offSet + limit)
+              .map((item) => (
+                <Post item={item} key={item.id} />
               ))}
           </PostContainer>
         )}

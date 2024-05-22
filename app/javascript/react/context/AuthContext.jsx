@@ -4,11 +4,11 @@ const AuthContext = () => {
 
     const [isLogged, setIsLogged] = useState(false);
     const [user, setUser] = useState({});
-    const [posts, setPosts] = useState([]);
+    const [items, setItems] = useState([]);
     const [theme, setTheme] = useState('light')
 
     return {
-        isLogged, setIsLogged, user, setUser, posts, setPosts, theme, setTheme
+        isLogged, setIsLogged, user, setUser, items, setItems, theme, setTheme
     };
 };
 

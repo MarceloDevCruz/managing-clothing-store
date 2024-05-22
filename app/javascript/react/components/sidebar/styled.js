@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+
+export const Image = styled.img`
+  cursor: pointer;
+`;
+
 
 export const Container = styled.section`
   grid-area: 1 / 1 / span 2 / span 1;

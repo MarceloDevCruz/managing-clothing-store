@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :items, except: [:create, :new, :update]
+
   delete '/posts/:id', to: 'posts#destroy', as: 'delete_post'
   delete '/comment/:id', to: 'comments#destroy', as: 'delete_comment'
 

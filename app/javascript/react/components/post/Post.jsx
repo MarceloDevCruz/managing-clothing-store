@@ -1,18 +1,14 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
-import { Container, Vectors, InlineButton, PopupContainer, PopupWrapper } from './styled';
+import { Container, Vectors, InlineButton, Image, PopupContainer, PopupWrapper } from './styled';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { IoMdTrash } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { CreateContext } from '../../context/CreateContext';
 import { FiMoreHorizontal } from 'react-icons/fi';
 
-const Post = ({ post, onDeletePost }) => {
+const Post = ({ item }) => {
   const context = useContext(CreateContext);
-  const isUserOwner = context.user.id === post.attributes.user_id;
-
-  const handleDeletePost = () => {
-    onDeletePost(post.id);
-  };
+  const isUserOwner = context.user.id === item.attributes.user_id;
 
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef();
@@ -37,31 +33,15 @@ const Post = ({ post, onDeletePost }) => {
 
   return (
     <Container theme={context.theme}>
-      <img src={post.attributes.image} alt={post.attributes.image_alt} />
-      <h3>{post.attributes.title}</h3>
-      <p>{post.attributes.content}</p>
-      <small>Postado por: {post.attributes.user_name}</small>
-      <small>{post.attributes.created_at}</small>
+      <Image src={item.attributes.image} alt={item.attributes.image_alt} />
+      <h3>{item.attributes.title}</h3>
+      <p>{item.attributes.description}</p>
+      <small>{item.attributes.created_at}</small>
       <InlineButton>
-        <Link to={`/post/${post.id}`} >
+        <Link to={`/item/${item.id}`} >
           Veja mais &rarr;
         </Link>
       </InlineButton>
-      <Vectors>
-        {isUserOwner && (
-          <PopupWrapper>
-            <FiMoreHorizontal onClick={handlePopupClick} />
-            {showPopup && (
-              <PopupContainer ref={popupRef} theme={context.theme}>
-                <Link to={`/editpost/${post.id}`}>
-                  <AiTwotoneEdit />
-                </Link>
-                <IoMdTrash onClick={handleDeletePost} />
-              </PopupContainer>
-            )}
-          </PopupWrapper>
-        )}
-      </Vectors>
     </Container>
   );
 };

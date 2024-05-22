@@ -23,12 +23,12 @@ const Router = () => {
         <Theme />
         <Sidebar />
         <Routes>
-          <Route path="/" element={context.isLogged ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/createpost" element={context.isLogged ? <CreatePost /> : <Navigate to="/login" />} />
           <Route path="/editpost/:id" element={context.isLogged ? <EditPost /> : <Navigate to="/login" />} />
-          <Route path="/post/:id" element={context.isLogged ? <IndividualPost /> : <Navigate to="/login" />} />
+          <Route path="/item/:id" element={context.isLogged ? <IndividualPost /> : <Navigate to="/login" />} />
         </Routes>
       </Container>
     </BrowserRouter>
