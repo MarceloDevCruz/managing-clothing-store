@@ -16,8 +16,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, except: [:create, :new, :update]
+  resources :items, except: [:create, :new, :update] do
+    member do
+      patch 'update_quantity'
+    end
+  end
+  
+  resources :addresses, only: [:create]
+  resources :carts, only: [:create, :index, :delete]
 
+
+  get '/addresses/:user_id', to: "addresses#show", as: 'show_address'
   delete '/posts/:id', to: 'posts#destroy', as: 'delete_post'
   delete '/comment/:id', to: 'comments#destroy', as: 'delete_comment'
 

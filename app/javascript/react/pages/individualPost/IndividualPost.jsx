@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Container, PostContainer, Button } from './styled';
+import { Container, PostContainer, Button, FlashMessage } from './styled';
 import axios from 'axios';
 import { CreateContext } from '../../context/CreateContext';
 import { useParams } from 'react-router-dom';
@@ -10,7 +10,7 @@ const IndividualPost = () => {
   const params = useParams();
   const id = Number(params.id);
   const [item, setItem] = useState(null);
-  const [showCart, setShowCart] = useState(false); // Novo estado para controlar a exibição do Cart
+  const [flashMessage, setFlashMessage] = useState(null);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -30,20 +30,31 @@ const IndividualPost = () => {
     return <p>Carregando...</p>;
   }
 
-  const handleClick = () => {
-    setShowCart(true); // Exibe o componente Cart
-  }
+  const handleClick = async () => {
+    try {
+      const response = await axios.post('/carts', {
+        user_id: context.user.id,
+        item_id: item.id
+      });
+      setFlashMessage('Item adicionado ao carrinho com sucesso!');
+      setTimeout(() => setFlashMessage(null), 3000); // Remove a mensagem flash após 3 segundos
+    } catch (error) {
+      console.error('Failed to add item to cart:', error);
+      setFlashMessage('Falha ao adicionar item ao carrinho.');
+      setTimeout(() => setFlashMessage(null), 3000); // Remove a mensagem flash após 3 segundos
+    }
+  };
 
   return (
     <Container>
+      {flashMessage && <FlashMessage>{flashMessage}</FlashMessage>}
       <img src={item.attributes.image} alt={item.attributes.image_alt} />
       <PostContainer theme={context.theme}> 
         <h1>{item.attributes.title}</h1>
         <p>{item.attributes.description}</p>
         <p>{item.attributes.size}</p>
         <p>R$: {item.attributes.value}</p>
-        <Button onClick={handleClick}>Adicionar no Carrinho</Button >
-        {showCart && <Cart user={context.user.id} item={item} />} {/* Renderiza o componente Cart */}
+        <Button onClick={handleClick}>Adicionar no Carrinho</Button>
       </PostContainer>
     </Container>
   );

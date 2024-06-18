@@ -27,7 +27,6 @@ const Home = () => {
     fetchItems();
   }, []);
 
-
   return (
     <>
       <Header />

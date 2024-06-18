@@ -137,3 +137,15 @@ export const Button = styled.button`
       background-color: #215841;
     }
 `;
+
+export const FlashMessage = styled.div`
+  position: fixed;
+  top: 5%;
+  left: 45%;
+  background-color: lightgreen;
+  color: #111;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+`;

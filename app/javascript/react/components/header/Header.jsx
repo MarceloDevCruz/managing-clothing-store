@@ -2,11 +2,18 @@ import React, { useState, useContext } from "react";
 import { Container, SearchContainer, TextContainer } from "./styled";
 import { BsSearch } from "react-icons/bs";
 import { CreateContext } from '../../context/CreateContext';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   const [expandInput, setExpandInput] = useState(false);
   const [selectedButton, setSelectedButton] = useState("crescente");
   const context = useContext(CreateContext);
+
+
+  const OpenProfile = () => {
+    navigate(`/address/${context.user.id}`);
+  }
 
   return (
     <Container>
@@ -19,8 +26,8 @@ const Header = () => {
           />
           <BsSearch />
         </form>
-        <div>
-          <img src="user_avatar.png" alt="user avatar" />
+        <div >
+          <img src="user_avatar.png" alt="user avatar" onClick={OpenProfile} />
         </div>
       </SearchContainer>
 

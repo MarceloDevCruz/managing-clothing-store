@@ -81,7 +81,7 @@ const Sidebar = () => {
                       </StyledLink>
                     </li>
                     <li>
-                      <StyledLink to="/createpost" isActive={location.pathname === '/createpost'}>
+                      <StyledLink to="/cart" isActive={location.pathname === '/cart'}>
                         <CiShoppingCart />
                         Meu Carrinho
                       </StyledLink>
@@ -140,7 +140,7 @@ const Sidebar = () => {
                       </StyledLink>
                     </li>
                     <li>
-                      <StyledLink to="/createpost" isActive={location.pathname === '/createpost'}>
+                      <StyledLink to="/cart" isActive={location.pathname === '/cart'}>
                         <CiShoppingCart />
                         Meu Carrinho
                       </StyledLink>

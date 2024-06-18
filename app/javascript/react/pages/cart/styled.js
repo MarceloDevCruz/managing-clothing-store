@@ -80,3 +80,12 @@ export const Container = styled.div`
     color: ${(props) => (props.theme === 'dark' ? '#f8f8f8' : 'rgba(0,0,0,0.8)')};
   }
 `;
+
+export const FlashMessage = styled.div`
+  background-color: #f0c14b;
+  color: #111;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+`;

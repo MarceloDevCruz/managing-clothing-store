@@ -1,7 +1,7 @@
 class ItemSerializer
   include JSONAPI::Serializer
   
-  attributes :title, :description, :size, :quantity, :value, :color
+  attributes :id, :title, :description, :size, :quantity, :value, :color
 
   attribute :image do |item|
     ItemDecorator.new(item).image_url
